@@ -8,8 +8,9 @@ int formula1() {
     int *maior_indice;
     int corridas[109][109];
     int corredores[109];
+    string result;
 
-        while (true) {
+    while (true) {
 
         cin >> g >> p;
         
@@ -43,11 +44,15 @@ int formula1() {
             }
 
             for (int j = 1; j <= p; ++j) {
-                if (corredores[j] == maior) cout << j << " ";
+                if (corredores[j] == maior) result += to_string(j) + " ";
                 corredores[j] = 0;
             }
 
-            cout << endl;
+            result.erase(remove(result.end()-1, result.end(), ' '), result.end());
+
+            cout << result << endl;
+            result = "";
+
             maior = -1;
         }
     }
